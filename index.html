@@ -1,0 +1,813 @@
+
+html_code = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RUSH ACCOUNT STORE | Sri Lanka's Trusted Free Fire Account Store</title>
+<meta name="description" content="Sri Lanka's most trusted Free Fire account marketplace. Premium accounts with rare skins, high ranks, and instant delivery. Join our WhatsApp community today.">
+<meta name="keywords" content="Free Fire, account, buy, sell, Sri Lanka, gaming, skins, diamonds, rank, elite pass">
+<meta name="author" content="RUSH ACCOUNT STORE">
+<meta property="og:title" content="RUSH ACCOUNT STORE - Free Fire Accounts">
+<meta property="og:description" content="Premium Free Fire accounts with instant delivery. Trusted by Sri Lankan gamers.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://rushaccountstore.lk">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root {
+--gold: #FFD700;
+--gold-light: #FFE55C;
+--gold-dark: #B8860B;
+--orange: #FF6B00;
+--orange-light: #FF8C42;
+--orange-glow: rgba(255, 107, 0, 0.4);
+--black: #0A0A0F;
+--black-light: #12121A;
+--dark-gray: #1A1A2E;
+--dark-gray-light: #252540;
+--text-primary: #FFFFFF;
+--text-secondary: #A0A0B0;
+--text-muted: #6B6B7B;
+--success: #00FF88;
+--danger: #FF4444;
+--glass: rgba(255, 255, 255, 0.03);
+--glass-border: rgba(255, 255, 255, 0.08);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; background: var(--black); color: var(--text-primary); overflow-x: hidden; line-height: 1.6; }
+.bg-grid { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; opacity: 0.15; background-image: linear-gradient(rgba(255,107,0,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,107,0,0.1) 1px, transparent 1px); background-size: 50px 50px; }
+.bg-glow { position: fixed; width: 600px; height: 600px; border-radius: 50%; filter: blur(150px); pointer-events: none; z-index: 0; opacity: 0.3; }
+.bg-glow-1 { top: -200px; left: -200px; background: var(--orange); }
+.bg-glow-2 { bottom: -200px; right: -200px; background: var(--gold); }
+.bg-glow-3 { top: 50%; left: 50%; transform: translate(-50%, -50%); background: var(--orange); opacity: 0.1; }
+.particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: hidden; }
+.particle { position: absolute; width: 4px; height: 4px; background: var(--gold); border-radius: 50%; opacity: 0; animation: float-particle 8s infinite ease-in-out; }
+@keyframes float-particle { 0%, 100% { opacity: 0; transform: translateY(0) scale(0); } 10% { opacity: 1; transform: translateY(-20px) scale(1); } 90% { opacity: 1; transform: translateY(-100vh) scale(1); } 100% { opacity: 0; transform: translateY(-110vh) scale(0); } }
+.navbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 1rem 0; transition: all 0.4s ease; background: transparent; }
+.navbar.scrolled { background: rgba(10,10,15,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); padding: 0.6rem 0; }
+.nav-container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+.logo { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+.logo-icon { width: 45px; height: 45px; background: linear-gradient(135deg, var(--orange), var(--gold)); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--black); box-shadow: 0 0 20px var(--orange-glow); }
+.logo-text { font-family: 'Orbitron', sans-serif; font-weight: 800; font-size: 1.3rem; color: var(--text-primary); letter-spacing: 1px; }
+.logo-text span { color: var(--gold); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a { text-decoration: none; color: var(--text-secondary); font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 1.1rem; letter-spacing: 1px; transition: color 0.3s ease; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--orange), var(--gold)); transition: width 0.3s ease; }
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+.mobile-menu-btn { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 1rem 2.5rem; border-radius: 12px; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 1px; text-decoration: none; cursor: pointer; transition: all 0.3s ease; border: none; position: relative; overflow: hidden; }
+.btn-primary { background: linear-gradient(135deg, var(--orange), var(--gold-dark)); color: var(--black); box-shadow: 0 0 30px var(--orange-glow), inset 0 1px 0 rgba(255,255,255,0.2); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 40px var(--orange-glow), inset 0 1px 0 rgba(255,255,255,0.2); }
+.btn-glow { position: relative; }
+.btn-glow::before { content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; background: linear-gradient(45deg, var(--orange), var(--gold), var(--orange)); border-radius: 14px; z-index: -1; opacity: 0; transition: opacity 0.3s ease; animation: glow-rotate 3s linear infinite; }
+.btn-glow:hover::before { opacity: 1; }
+@keyframes glow-rotate { 0% { filter: hue-rotate(0deg); } 100% { filter: hue-rotate(360deg); } }
+.btn-secondary { background: transparent; color: var(--gold); border: 2px solid var(--gold); box-shadow: 0 0 20px rgba(255,215,0,0.1); }
+.btn-secondary:hover { background: var(--gold); color: var(--black); box-shadow: 0 0 30px rgba(255,215,0,0.3); transform: translateY(-3px); }
+.btn-whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); color: white; box-shadow: 0 0 30px rgba(37,211,102,0.3); }
+.btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(37,211,102,0.4); }
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; padding: 8rem 2rem 4rem; overflow: hidden; }
+.hero-content { text-align: center; max-width: 900px; position: relative; z-index: 2; }
+.hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.5rem; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 50px; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--gold); margin-bottom: 2rem; animation: fadeInUp 0.8s ease forwards; }
+.hero-badge i { color: var(--success); }
+.hero-title { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1.1; margin-bottom: 1.5rem; animation: fadeInUp 0.8s ease 0.2s forwards; opacity: 0; }
+.hero-title .gradient-text { background: linear-gradient(135deg, var(--gold), var(--orange), var(--gold-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; background-size: 200% auto; animation: gradient-shift 3s ease infinite; }
+@keyframes gradient-shift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+.hero-subtitle { font-family: 'Rajdhani', sans-serif; font-size: clamp(1.1rem, 2.5vw, 1.5rem); color: var(--text-secondary); font-weight: 500; margin-bottom: 3rem; animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0; }
+.hero-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.6s forwards; opacity: 0; }
+.hero-stats-row { display: flex; justify-content: center; gap: 3rem; margin-top: 4rem; animation: fadeInUp 0.8s ease 0.8s forwards; opacity: 0; }
+.hero-stat { text-align: center; }
+.hero-stat-value { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 2rem; color: var(--gold); }
+.hero-stat-label { font-family: 'Rajdhani', sans-serif; color: var(--text-muted); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+section { position: relative; z-index: 2; }
+.section-header { text-align: center; margin-bottom: 4rem; }
+.section-label { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 0.9rem; color: var(--orange); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 1rem; }
+.section-title { font-family: 'Orbitron', sans-serif; font-weight: 800; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+.section-title .highlight { color: var(--gold); }
+.section-desc { color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+.trust { padding: 6rem 2rem; background: linear-gradient(180deg, transparent, rgba(255,107,0,0.03), transparent); }
+.trust-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+.trust-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 20px; padding: 2.5rem; text-align: center; transition: all 0.4s ease; position: relative; overflow: hidden; }
+.trust-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--orange), var(--gold)); transform: scaleX(0); transition: transform 0.4s ease; }
+.trust-card:hover { transform: translateY(-10px); border-color: rgba(255,215,0,0.2); box-shadow: 0 20px 60px rgba(0,0,0,0.4); }
+.trust-card:hover::before { transform: scaleX(1); }
+.trust-icon { width: 70px; height: 70px; background: linear-gradient(135deg, rgba(255,107,0,0.2), rgba(255,215,0,0.2)); border-radius: 20px; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 1.8rem; color: var(--gold); border: 1px solid rgba(255,215,0,0.2); }
+.trust-card h3 { font-family: 'Orbitron', sans-serif; font-size: 1.2rem; margin-bottom: 0.75rem; }
+.trust-card p { color: var(--text-secondary); font-size: 0.95rem; }
+.accounts { padding: 6rem 2rem; }
+.accounts-filter { max-width: 800px; margin: 0 auto 3rem; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+.filter-btn { padding: 0.6rem 1.5rem; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 50px; color: var(--text-secondary); font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; }
+.filter-btn:hover, .filter-btn.active { background: linear-gradient(135deg, var(--orange), var(--gold-dark)); color: var(--black); border-color: transparent; box-shadow: 0 0 20px var(--orange-glow); }
+.accounts-search { max-width: 500px; margin: 0 auto 2rem; position: relative; }
+.accounts-search input { width: 100%; padding: 1rem 1.5rem 1rem 3rem; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 50px; color: var(--text-primary); font-family: 'Inter', sans-serif; font-size: 1rem; transition: all 0.3s ease; }
+.accounts-search input:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 20px rgba(255,107,0,0.1); }
+.accounts-search i { position: absolute; left: 1.2rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+.accounts-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+.account-card { background: linear-gradient(145deg, var(--dark-gray), var(--black-light)); border: 1px solid var(--glass-border); border-radius: 24px; overflow: hidden; transition: all 0.4s ease; position: relative; }
+.account-card:hover { transform: translateY(-10px) scale(1.02); border-color: rgba(255,215,0,0.3); box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 40px rgba(255,107,0,0.1); }
+.account-image { position: relative; height: 220px; overflow: hidden; }
+.account-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.account-card:hover .account-image img { transform: scale(1.1); }
+.account-image-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(180deg, transparent 40%, rgba(10,10,15,0.95) 100%); }
+.account-badge { position: absolute; top: 1rem; right: 1rem; padding: 0.4rem 1rem; background: linear-gradient(135deg, var(--orange), var(--gold-dark)); border-radius: 50px; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--black); box-shadow: 0 4px 15px rgba(255,107,0,0.3); }
+.account-rank { position: absolute; bottom: 1rem; left: 1rem; display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); border-radius: 50px; border: 1px solid rgba(255,215,0,0.2); }
+.account-rank i { color: var(--gold); }
+.account-rank span { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 0.9rem; color: var(--gold); }
+.account-info { padding: 1.5rem; }
+.account-level { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem; }
+.account-level i { color: var(--orange); }
+.account-level span { font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 1.1rem; }
+.account-features { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
+.account-feature { padding: 0.3rem 0.8rem; background: var(--glass); border: 1px solid var(--glass-border); border-radius: 50px; font-size: 0.85rem; color: var(--text-secondary); display: flex; align-items: center; gap: 0.3rem; }
+.account-feature i { color: var(--gold); font-size: 0.8rem; }
+.account-price-row { display: flex; justify-content: space-between; align-items: center; padding-top: 1rem; border-top: 1px solid var(--glass-border); }
+.account-price { font-family: 'Orbitron', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--gold); }
+.account-price span { font-size: 0.9rem; color: var(--text-muted); }
+.reviews { padding: 6rem 2rem; background: linear-gradient(180deg, transparent, rgba(255,215,0,0.02), transparent); }
+.reviews-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+.review-card { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 20px; padding: 2.5rem; transition: all 0.4s ease; position: relative; }
+.review-card::before { content: '"'; position: absolute; top: 1rem; right: 2rem; font-family: 'Orbitron', sans-serif; font-size: 5rem; color: rgba(255,215,0,0.1); line-height: 1; }
+.review-card:hover { transform: translateY(-5px); border-color: rgba(255,215,0,0.2); }
+.review-stars { display: flex; gap: 0.25rem; margin-bottom: 1rem; }
+.review-stars i { color: var(--gold); font-size: 1rem; }
+.review-text { color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem; font-style: italic; }
+.review-author { display: flex; align-items: center; gap: 1rem; }
+.review-avatar { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(135deg, var(--orange), var(--gold)); display: flex; align-items: center; justify-content: center; font-family: 'Orbitron', sans-serif; font-weight: 700; color: var(--black); font-size: 1.2rem; }
+.review-author-info h4 { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 1.1rem; }
+.review-author-info p { color: var(--text-muted); font-size: 0.9rem; }
+.stats { padding: 6rem 2rem; position: relative; }
+.stats-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; text-align: center; }
+.stat-item { position: relative; }
+.stat-number { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: clamp(3rem, 6vw, 5rem); background: linear-gradient(135deg, var(--gold), var(--orange)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: 0.5rem; }
+.stat-label { font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 1.2rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 2px; }
+.contact { padding: 6rem 2rem; background: linear-gradient(180deg, transparent, rgba(255,107,0,0.03), transparent); }
+.contact-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+.contact-whatsapp { background: linear-gradient(145deg, var(--dark-gray), var(--black-light)); border: 1px solid rgba(37,211,102,0.2); border-radius: 24px; padding: 3rem; text-align: center; position: relative; overflow: hidden; }
+.contact-whatsapp::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(37,211,102,0.05), transparent 70%); animation: pulse-glow 4s ease-in-out infinite; }
+@keyframes pulse-glow { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 1; } }
+.contact-whatsapp-content { position: relative; z-index: 1; }
+.whatsapp-icon-large { width: 100px; height: 100px; background: linear-gradient(135deg, #25D366, #128C7E); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 2rem; font-size: 3rem; color: white; box-shadow: 0 0 40px rgba(37,211,102,0.3); animation: whatsapp-bounce 2s ease infinite; }
+@keyframes whatsapp-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+.contact-whatsapp h3 { font-family: 'Orbitron', sans-serif; font-size: 1.5rem; margin-bottom: 1rem; }
+.contact-whatsapp p { color: var(--text-secondary); margin-bottom: 2rem; }
+.contact-form-wrapper { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 24px; padding: 3rem; }
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 1rem; color: var(--text-secondary); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
+.form-group input, .form-group textarea { width: 100%; padding: 1rem 1.5rem; background: var(--black-light); border: 1px solid var(--glass-border); border-radius: 12px; color: var(--text-primary); font-family: 'Inter', sans-serif; font-size: 1rem; transition: all 0.3s ease; }
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--orange); box-shadow: 0 0 20px rgba(255,107,0,0.1); }
+.form-group textarea { min-height: 120px; resize: vertical; }
+.faq { padding: 6rem 2rem; }
+.faq-container { max-width: 800px; margin: 0 auto; }
+.faq-item { background: var(--glass); border: 1px solid var(--glass-border); border-radius: 16px; margin-bottom: 1rem; overflow: hidden; transition: all 0.3s ease; }
+.faq-item:hover { border-color: rgba(255,215,0,0.2); }
+.faq-question { padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; }
+.faq-question:hover { color: var(--gold); }
+.faq-question i { color: var(--orange); transition: transform 0.3s ease; }
+.faq-item.active .faq-question i { transform: rotate(180deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; }
+.faq-item.active .faq-answer { max-height: 300px; padding: 0 2rem 1.5rem; }
+.faq-answer p { color: var(--text-secondary); line-height: 1.7; }
+.footer { padding: 4rem 2rem 2rem; background: linear-gradient(180deg, transparent, var(--black-light)); border-top: 1px solid var(--glass-border); }
+.footer-container { max-width: 1200px; margin: 0 auto; }
+.footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+.footer-brand .logo { margin-bottom: 1.5rem; }
+.footer-brand p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; max-width: 300px; }
+.footer-links h4 { font-family: 'Orbitron', sans-serif; font-size: 1rem; margin-bottom: 1.5rem; color: var(--gold); }
+.footer-links ul { list-style: none; }
+.footer-links li { margin-bottom: 0.75rem; }
+.footer-links a { color: var(--text-secondary); text-decoration: none; transition: color 0.3s ease; font-size: 0.95rem; }
+.footer-links a:hover { color: var(--gold); }
+.footer-bottom { border-top: 1px solid var(--glass-border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-bottom p { color: var(--text-muted); font-size: 0.9rem; }
+.footer-bottom-links { display: flex; gap: 2rem; }
+.footer-bottom-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+.footer-bottom-links a:hover { color: var(--gold); }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.animate-on-scroll { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; }
+.animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+.mobile-menu { position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100vh; background: var(--black); border-left: 1px solid var(--glass-border); z-index: 1001; padding: 6rem 2rem 2rem; transition: right 0.4s ease; }
+.mobile-menu.active { right: 0; }
+.mobile-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 1000; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
+.mobile-menu-overlay.active { opacity: 1; visibility: visible; }
+.mobile-menu-links { list-style: none; }
+.mobile-menu-links li { margin-bottom: 1.5rem; }
+.mobile-menu-links a { font-family: 'Orbitron', sans-serif; font-size: 1.3rem; color: var(--text-primary); text-decoration: none; display: block; padding: 0.5rem 0; transition: color 0.3s ease; }
+.mobile-menu-links a:hover { color: var(--gold); }
+.mobile-menu-close { position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+.back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px; background: linear-gradient(135deg, var(--orange), var(--gold)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--black); font-size: 1.2rem; cursor: pointer; z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s ease; box-shadow: 0 0 20px var(--orange-glow); border: none; }
+.back-to-top.visible { opacity: 1; visibility: visible; }
+.back-to-top:hover { transform: translateY(-5px); box-shadow: 0 10px 30px var(--orange-glow); }
+.loading-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--black); z-index: 10000; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 0.5s ease, visibility 0.5s ease; }
+.loading-screen.hidden { opacity: 0; visibility: hidden; }
+.loading-logo { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 2rem; color: var(--gold); margin-bottom: 2rem; animation: loading-pulse 1.5s ease infinite; }
+@keyframes loading-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.95); } }
+.loading-bar { width: 200px; height: 4px; background: var(--dark-gray); border-radius: 2px; overflow: hidden; }
+.loading-bar-fill { width: 0%; height: 100%; background: linear-gradient(90deg, var(--orange), var(--gold)); border-radius: 2px; animation: loading-fill 2s ease forwards; }
+@keyframes loading-fill { 0% { width: 0%; } 100% { width: 100%; } }
+@media (max-width: 1024px) { .contact-container { grid-template-columns: 1fr; } .footer-top { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 768px) { .nav-links { display: none; } .mobile-menu-btn { display: block; } .hero-stats-row { gap: 1.5rem; } .footer-top { grid-template-columns: 1fr; gap: 2rem; } .footer-bottom { flex-direction: column; text-align: center; } .hero-buttons { flex-direction: column; align-items: center; } .btn { width: 100%; max-width: 300px; justify-content: center; } }
+@media (max-width: 480px) { .hero { padding: 7rem 1rem 3rem; } .trust, .accounts, .reviews, .stats, .contact, .faq { padding: 4rem 1rem; } .account-card { min-width: 100%; } }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--orange), var(--gold)); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, var(--gold), var(--orange)); }
+::selection { background: var(--orange); color: var(--black); }
+</style>
+</head>
+<body>
+<div class="loading-screen" id="loadingScreen">
+<div class="loading-logo">RUSH STORE</div>
+<div class="loading-bar"><div class="loading-bar-fill"></div></div>
+</div>
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+<div class="bg-glow bg-glow-3"></div>
+<div class="particles" id="particles"></div>
+<nav class="navbar" id="navbar">
+<div class="nav-container">
+<a href="#" class="logo">
+<div class="logo-icon"><i class="fas fa-gamepad"></i></div>
+<div class="logo-text">RUSH <span>STORE</span></div>
+</a>
+<ul class="nav-links">
+<li><a href="#accounts">Accounts</a></li>
+<li><a href="#trust">Why Us</a></li>
+<li><a href="#reviews">Reviews</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+</div>
+</nav>
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+<button class="mobile-menu-close" id="mobileMenuClose"><i class="fas fa-times"></i></button>
+<ul class="mobile-menu-links">
+<li><a href="#accounts">Accounts</a></li>
+<li><a href="#trust">Why Us</a></li>
+<li><a href="#reviews">Reviews</a></li>
+<li><a href="#faq">FAQ</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+<section class="hero" id="hero">
+<div class="hero-content">
+<div class="hero-badge"><i class="fas fa-shield-alt"></i> Trusted by 500+ Sri Lankan Gamers</div>
+<h1 class="hero-title">RUSH <span class="gradient-text">ACCOUNT STORE</span></h1>
+<p class="hero-subtitle">Sri Lanka's Trusted Free Fire Account Store — Premium accounts with rare skins, high ranks & instant delivery. Your gaming journey starts here.</p>
+<div class="hero-buttons">
+<a href="#accounts" class="btn btn-primary btn-glow"><i class="fas fa-search"></i> Browse Accounts</a>
+<a href="https://chat.whatsapp.com/KfD8toGR41RKG4wp6aKIaF?s=cl&p=a&mlu=1" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Join WhatsApp Community</a>
+</div>
+<div class="hero-stats-row">
+<div class="hero-stat"><div class="hero-stat-value">500+</div><div class="hero-stat-label">Happy Customers</div></div>
+<div class="hero-stat"><div class="hero-stat-value">350+</div><div class="hero-stat-label">Accounts Sold</div></div>
+<div class="hero-stat"><div class="hero-stat-value">99%</div><div class="hero-stat-label">Positive Reviews</div></div>
+</div>
+</div>
+</section>
+<section class="trust" id="trust">
+<div class="section-header animate-on-scroll">
+<div class="section-label">Why Choose Us</div>
+<h2 class="section-title">Built for <span class="highlight">Gamers</span>, Trusted by Many</h2>
+<p class="section-desc">We deliver premium Free Fire accounts with unmatched security and speed.</p>
+</div>
+<div class="trust-grid">
+<div class="trust-card animate-on-scroll">
+<div class="trust-icon"><i class="fas fa-user-shield"></i></div>
+<h3>Trusted Seller</h3>
+<p>Verified and trusted by hundreds of Sri Lankan gamers. Every transaction is handled with professionalism and care.</p>
+</div>
+<div class="trust-card animate-on-scroll">
+<div class="trust-icon"><i class="fas fa-lock"></i></div>
+<h3>Secure Transactions</h3>
+<p>End-to-end encrypted payments and secure account transfers. Your data and money are always protected.</p>
+</div>
+<div class="trust-card animate-on-scroll">
+<div class="trust-icon"><i class="fas fa-bolt"></i></div>
+<h3>Fast Delivery</h3>
+<p>Get your account details within minutes of purchase. No waiting, no delays — instant gaming gratification.</p>
+</div>
+<div class="trust-card animate-on-scroll">
+<div class="trust-icon"><i class="fas fa-check-double"></i></div>
+<h3>Verified Accounts</h3>
+<p>Every account is manually verified for authenticity. What you see is exactly what you get — guaranteed.</p>
+</div>
+<div class="trust-card animate-on-scroll">
+<div class="trust-icon"><i class="fas fa-headset"></i></div>
+<h3>24/7 Support</h3>
+<p>Round-the-clock customer support through WhatsApp. Our team is always ready to help you with any questions.</p>
+</div>
+<div class="trust-card animate-on-scroll">
+<div class="trust-icon"><i class="fas fa-heart"></i></div>
+<h3>Trusted by Sri Lankans</h3>
+<p>Sri Lanka's most loved Free Fire account store. Join our growing community of satisfied gamers today.</p>
+</div>
+</div>
+</section>
+<section class="accounts" id="accounts">
+<div class="section-header animate-on-scroll">
+<div class="section-label">Premium Inventory</div>
+<h2 class="section-title">Featured <span class="highlight">Accounts</span></h2>
+<p class="section-desc">Hand-picked premium accounts with rare skins, high ranks, and elite passes.</p>
+</div>
+<div class="accounts-search animate-on-scroll">
+<i class="fas fa-search"></i>
+<input type="text" id="accountSearch" placeholder="Search accounts by rank, level, or price...">
+</div>
+<div class="accounts-filter animate-on-scroll">
+<button class="filter-btn active" data-filter="all">All Accounts</button>
+<button class="filter-btn" data-filter="grandmaster">Grandmaster</button>
+<button class="filter-btn" data-filter="heroic">Heroic</button>
+<button class="filter-btn" data-filter="diamond">Diamond</button>
+<button class="filter-btn" data-filter="platinum">Platinum</button>
+<button class="filter-btn" data-filter="gold">Gold</button>
+</div>
+<div class="accounts-grid" id="accountsGrid">
+<div class="account-card animate-on-scroll" data-rank="grandmaster" data-price="12500" data-level="75">
+<div class="account-image">
+<img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=400&fit=crop" alt="Free Fire Account">
+<div class="account-image-overlay"></div>
+<div class="account-badge">BEST SELLER</div>
+<div class="account-rank"><i class="fas fa-crown"></i><span>GRANDMASTER</span></div>
+</div>
+<div class="account-info">
+<div class="account-level"><i class="fas fa-star"></i><span>Level 75 | Maxed Evolution</span></div>
+<div class="account-features">
+<span class="account-feature"><i class="fas fa-tshirt"></i> 120+ Skins</span>
+<span class="account-feature"><i class="fas fa-gem"></i> Elite Pass</span>
+<span class="account-feature"><i class="fas fa-paw"></i> 8 Pets</span>
+<span class="account-feature"><i class="fas fa-car"></i> 15 Vehicles</span>
+</div>
+<div class="account-price-row">
+<div class="account-price">LKR 12,500 <span>only</span></div>
+<a href="https://chat.whatsapp.com/KfD8toGR41RKG4wp6aKIaF?s=cl&p=a&mlu=1" target="_blank" class="btn btn-primary" style="padding:0.7rem 1.5rem;font-size:0.95rem;"><i class="fas fa-shopping-cart"></i> Buy Now</a>
+</div>
+</div>
+</div>
+<div class="account-card animate-on-scroll" data-rank="heroic" data-price="8900" data-level="68">
+<div class="account-image">
+<img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=600&h=400&fit=crop" alt="Free Fire Account">
+<div class="account-image-overlay"></div>
+<div class="account-badge">HOT DEAL</div>
+<div class="account-rank"><i class="fas fa-crown"></i><span>HEROIC</span></div>
+</div>
+<div class="account-info">
+<div class="account-level"><i class="fas fa-star"></i><span>Level 68 | Veteran Player</span></div>
+<div class="account-features">
+<span class="account-feature"><i class="fas fa-tshirt"></i> 85+ Skins</span>
+<span class="account-feature"><i class="fas fa-gem"></i> 3 Elite Pass</span>
+<span class="account-feature"><i class="fas fa-paw"></i> 5 Pets</span>
+<span class="account-feature"><i class="fas fa-car"></i> 10 Vehicles</span>
+</div>
+<div class="account-price-row">
+<div class="account-price">LKR 8,900 <span>only</span></div>
+<a href="https://chat.whatsapp.com/KfD8toGR41RKG4wp6aKIaF?s=cl&p=a&mlu=1" target="_blank" class="btn btn-primary" style="padding:0.7rem 1.5rem;font-size:0.95rem;"><i class="fas fa-shopping-cart"></i> Buy Now</a>
+</div>
+</div>
+</div>
+<div class="account-card animate-on-scroll" data-rank="diamond" data-price="18000" data-level="82">
+<div class="account-image">
+<img src="https://images.unsplash.com/photo-1552820728-8b83bb6b2b0a?w=600&h=400&fit=crop" alt="Free Fire Account">
+<div class="account-image-overlay"></div>
+<div class="account-badge">RARE</div>
+<div class="account-rank"><i class="fas fa-crown"></i><span>DIAMOND</span></div>
+</div>
+<div class="account-info">
+<div class="account-level"><i class="fas fa-star"></i><span>Level 82 | Legendary</span></div>
+<div class="account-features">
+<span class="account-feature"><i class="fas fa-tshirt"></i> 150+ Skins</span>
+<span class="account-feature"><i class="fas fa-gem"></i> All Elite Pass</span>
+<span class="account-feature"><i class="fas fa-paw"></i> 12 Pets</span>
+<span class="account-feature"><i class="fas fa-car"></i> 20 Vehicles</span>
+</div>
+<div class="account-price-row">
+<div class="account-price">LKR 18,000 <span>only</span></div>
+<a href="https://chat.whatsapp.com/KfD8toGR41RKG4wp6aKIaF?s=cl&p=a&mlu=1" target="_blank" class="btn btn-primary" style="padding:0.7rem 1.5rem;font-size:0.95rem;"><i class="fas fa-shopping-cart"></i> Buy Now</a>
+</div>
+</div>
+</div>
+<div class="account-card animate-on-scroll" data-rank="platinum" data-price="5500" data-level="55">
+<div class="account-image">
+<img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600&h=400&fit=crop" alt="Free Fire Account">
+<div class="account-image-overlay"></div>
+<div class="account-badge">NEW</div>
+<div class="account-rank"><i class="fas fa-crown"></i><span>PLATINUM</span></div>
+</div>
+<div class="account-info">
+<div class="account-level"><i class="fas fa-star"></i><span>Level 55 | Rising Star</span></div>
+<div class="account-features">
+<span class="account-feature"><i class="fas fa-tshirt"></i> 60+ Skins</span>
+<span class="account-feature"><i class="fas fa-gem"></i> 2 Elite Pass</span>
+<span class="account-feature"><i class="fas fa-paw"></i> 3 Pets</span>
+<span class="account-feature"><i class="fas fa-car"></i> 6 Vehicles</span>
+</div>
+<div class="account-price-row">
+<div class="account-price">LKR 5,500 <span>only</span></div>
+<a href="https://chat.whatsapp.com/KfD8toGR41RKG4wp6aKIaF?s=cl&p=a&mlu=1" target="_blank" class="btn btn-primary" style="padding:0.7rem 1.5rem;font-size:0.95rem;"><i class="fas fa-shopping-cart"></i> Buy Now</a>
+</div>
+</div>
+</div>
+<div class="account-card animate-on-scroll" data-rank="heroic" data-price="10500" data-level="72">
+<div class="account-image">
+<img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=600&h=400&fit=crop" alt="Free Fire Account">
+<div class="account-image-overlay"></div>
+<div class="account-badge">POPULAR</div>
+<div class="account-rank"><i class="fas fa-crown"></i><span>HEROIC</span></div>
+</div>
+<div class="account-info">
+<div class="account-level"><i class="fas fa-star"></i><span>Level 72 | Pro Gamer</span></div>
+<div class="account-features">
+<span class="account-feature"><i class="fas fa-tshirt"></i> 95+ Skins</span>
+<span class="account-feature"><i class="fas fa-gem"></i> 4 Elite Pass</span>
+<span class="account-feature"><i class="fas fa-paw"></i> 7 Pets</span>
+<span class="account-feature"><i class="fas fa-car"></i> 12 Vehicles</span>
+</div>
+<div class="account-price-row">
+<div class="account-price">LKR 10,500 <span>only</span></div>
+<a href="https://chat.whatsapp.com/KfD8toGR41RKG4wp6aKIaF?s=cl&p=a&mlu=1" target="_blank" class="btn btn-primary" style="padding:0.7rem 1.5rem;font-size:0.95rem;"><i class="fas fa-shopping-cart"></i> Buy Now</a>
+</div>
+</div>
+</div>
+<div class="account-card animate-on-scroll" data-rank="gold" data-price="3500" data-level="45">
+<div class="account-image">
+<img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=400&fit=crop" alt="Free Fire Account">
+<div class="account-image-overlay"></div>
+<div class="account-badge">BUDGET</div>
+<div class="account-rank"><i class="fas fa-crown"></i><span>GOLD</span></div>
+</div>
+<div class="account-info">
+<div class="account-level"><i class="fas fa-star"></i><span>Level 45 | Starter Pack</span></div>
+<div class="account-features">
+<span class="account-feature"><i class="fas fa-tshirt"></i> 40+ Skins</span>
+<span class="account-feature"><i class="fas fa-gem"></i> 1 Elite Pass</span>
+<span class="account-feature"><i class="fas fa-paw"></i> 2 Pets</span>
+<span class="account-feature"><i class="fas fa-car"></i> 4 Vehicles</span>
+</div>
+<div class="account-price-row">
+<div class="account-price">LKR 3,500 <span>only</span></div>
+<a href="https://chat.whatsapp.com/KfD8toGR41RKG4wp6aKIaF?s=cl&p=a&mlu=1" target="_blank" class="btn btn-primary" style="padding:0.7rem 1.5rem;font-size:0.95rem;"><i class="fas fa-shopping-cart"></i> Buy Now</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="stats" id="stats">
+<div class="section-header animate-on-scroll">
+<div class="section-label">Our Numbers</div>
+<h2 class="section-title">Trusted by <span class="highlight">Hundreds</span></h2>
+</div>
+<div class="stats-container">
+<div class="stat-item animate-on-scroll">
+<div class="stat-number" data-target="500">0</div>
+<div class="stat-label">Accounts Sold</div>
+</div>
+<div class="stat-item animate-on-scroll">
+<div class="stat-number" data-target="500">0</div>
+<div class="stat-label">Happy Customers</div>
+</div>
+<div class="stat-item animate-on-scroll">
+<div class="stat-number" data-target="99">0</div>
+<div class="stat-label">Positive Reviews %</div>
+</div>
+</div>
+</section>
+<section class="reviews" id="reviews">
+<div class="section-header animate-on-scroll">
+<div class="section-label">Testimonials</div>
+<h2 class="section-title">Customer <span class="highlight">Reviews</span></h2>
+<p class="section-desc">Don't just take our word for it — hear from our satisfied customers.</p>
+</div>
+<div class="reviews-grid">
+<div class="review-card animate-on-scroll">
+<div class="review-stars">
+<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+</div>
+<p class="review-text">"Absolutely amazing service! Got my Grandmaster account within 10 minutes. The account had even more skins than advertised. Rush Account Store is the real deal in Sri Lanka!"</p>
+<div class="review-author">
+<div class="review-avatar">DK</div>
+<div class="review-author-info"><h4>Dilan K.</h4><p>Colombo, Sri Lanka</p></div>
+</div>
+</div>
+<div class="review-card animate-on-scroll">
+<div class="review-stars">
+<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+</div>
+<p class="review-text">"I've bought 3 accounts from here and every single one was perfect. The WhatsApp support is super responsive and they helped me with the account transfer. 10/10 would recommend!"</p>
+<div class="review-author">
+<div class="review-avatar">SR</div>
+<div class="review-author-info"><h4>Sahan R.</h4><p>Kandy, Sri Lanka</p></div>
+</div>
+</div>
+<div class="review-card animate-on-scroll">
+<div class="review-stars">
+<i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+</div>
+<p class="review-text">"Best prices in Sri Lanka for Free Fire accounts. The Elite Pass accounts are legit and the delivery was instant. Already recommended to all my squad members!"</p>
+<div class="review-author">
+<div class="review-avatar">NM</div>
+<div class="review-author-info"><h4>Nimal M.</h4><p>Galle, Sri Lanka</p></div>
+</div>
+</div>
+</div>
+</section>
+<section class="faq" id="faq">
+<div class="section-header animate-on-scroll">
+<div class="section-label">Common Questions</div>
+<h2 class="section-title">Frequently Asked <span class="highlight">Questions</span></h2>
+</div>
+<div class="faq-container">
+<div class="faq-item animate-on-scroll">
+<div class="faq-question"><span>How does the delivery process work?</span><i class="fas fa-chevron-down"></i></div>
+<div class="faq-answer"><p>Once you complete the payment, we send the account credentials (email and password) directly to you via WhatsApp within 5-10 minutes. We also provide a step-by-step guide on how to securely transfer the account to your device. Full support is available throughout the process.</p></div>
+</div>
+<div class="faq-item animate-on-scroll">
+<div class="faq-question"><span>What payment methods do you accept?</span><i class="fas fa-chevron-down"></i></div>
+<div class="faq-answer"><p>We accept all major payment methods in Sri Lanka including Bank Transfers (HNB, BOC, Commercial Bank), eZ Cash, mCash, and other mobile payment solutions. For international customers, we also accept PayPal. All transactions are secure and encrypted.</p></div>
+</div>
+<div class="faq-item animate-on-scroll">
+<div class="faq-question"><span>How is account ownership transferred?</span><i class="fas fa-chevron-down"></i></div>
+<div class="faq-answer"><p>We provide you with the full login credentials and guide you through changing the email, password, and binding the account to your phone number. We ensure the account is completely unlinked from any previous devices before transfer. Our support team walks you through every step.</p></div>
+</div>
+<div class="faq-item animate-on-scroll">
+<div class="faq-question"><span>What if I have issues after purchase?</span><i class="fas fa-chevron-down"></i></div>
+<div class="faq-answer"><p>We offer 24/7 customer support through our WhatsApp community. If you encounter any issues with your account, our team will assist you immediately. We also provide a replacement guarantee if the account details are incorrect or inaccessible.</p></div>
+</div>
+<div class="faq-item animate-on-scroll">
+<div class="faq-question"><span>Are the accounts safe to use?</span><i class="fas fa-chevron-down"></i></div>
+<div class="faq-answer"><p>Yes, all our accounts are 100% safe. We verify each account thoroughly before listing. Once you change the login credentials and bind the account to your device, it becomes exclusively yours. We never resell accounts and ensure complete ownership transfer.</p></div>
+</div>
+<div class="faq-item animate-on-scroll">
+<div class="faq-question"><span>Can I sell my account to you?</span><i class="fas fa-chevron-down"></i></div>
+<div class="faq-answer"><p>Yes! We buy high-quality Free Fire accounts from Sri Lankan players. Contact us via WhatsApp with your account details (level, rank, skins, etc.) and we will provide a fair quote. We handle the entire selling process securely and pay promptly.</p></div>
+</div>
+</div>
+</section>
+<section class="contact" id="contact">
+<div class="section-header animate-on-scroll">
+<div class="section-label">Get In Touch</div>
+<h2 class="section-title">Join Our <span class="highlight">Community</span></h2>
+<p class="section-desc">Connect with us instantly via WhatsApp or send us a message.</p>
+</div>
+<div class="contact-container">
+<div class="contact-whatsapp animate-on-scroll">
+<div class="contact-whatsapp-content">
+<div class="whatsapp-icon-large"><i class="fab fa-whatsapp"></i></div>
+<h3>Join WhatsApp Community</h3>
+<p>Get instant updates on new accounts, exclusive deals, and connect with fellow gamers. Our community is active 24/7!</p>
+<a href="https://chat.whatsapp.com/KfD8toGR41RKG4wp6aKIaF?s=cl&p=a&mlu=1" target="_blank" class="btn btn-whatsapp" style="margin-top:1rem;"><i class="fab fa-whatsapp"></i> Join WhatsApp Group</a>
+</div>
+</div>
+<div class="contact-form-wrapper animate-on-scroll">
+<h3 style="font-family:'Orbitron',sans-serif;font-size:1.3rem;margin-bottom:2rem;">Send Us a Message</h3>
+<form id="contactForm">
+<div class="form-group"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="Enter your name" required></div>
+<div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="Enter your email" required></div>
+<div class="form-group"><label for="message">Message</label><textarea id="message" name="message" placeholder="How can we help you?" required></textarea></div>
+<button type="submit" class="btn btn-primary btn-glow" style="width:100%;justify-content:center;"><i class="fas fa-paper-plane"></i> Send Message</button>
+</form>
+</div>
+</div>
+</section>
+<footer class="footer">
+<div class="footer-container">
+<div class="footer-top">
+<div class="footer-brand">
+<a href="#" class="logo">
+<div class="logo-icon"><i class="fas fa-gamepad"></i></div>
+<div class="logo-text">RUSH <span>STORE</span></div>
+</a>
+<p>Sri Lanka's most trusted Free Fire account marketplace. Premium accounts, instant delivery, and 24/7 support. Your gaming journey starts here.</p>
+</div>
+<div class="footer-links">
+<h4>Quick Links</h4>
+<ul>
+<li><a href="#accounts">Browse Accounts</a></li>
+<li><a href="#trust">Why Choose Us</a></li>
+<li><a href="#reviews">Customer Reviews</a></li>
+<li><a href="#faq">FAQ</a></li>
+</ul>
+</div>
+<div class="footer-links">
+<h4>Support</h4>
+<ul>
+<li><a href="#contact">Contact Us</a></li>
+<li><a href="https://chat.whatsapp.com/KfD8toGR41RKG4wp6aKIaF?s=cl&p=a&mlu=1" target="_blank">WhatsApp Community</a></li>
+<li><a href="#faq">Help Center</a></li>
+<li><a href="#">Sell Your Account</a></li>
+</ul>
+</div>
+<div class="footer-links">
+<h4>Legal</h4>
+<ul>
+<li><a href="#">Privacy Policy</a></li>
+<li><a href="#">Terms & Conditions</a></li>
+<li><a href="#">Refund Policy</a></li>
+<li><a href="#">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="footer-bottom">
+<p>Copyright 2026 RUSH ACCOUNT STORE. All rights reserved.</p>
+<div class="footer-bottom-links">
+<a href="#">Privacy Policy</a>
+<a href="#">Terms & Conditions</a>
+</div>
+</div>
+</div>
+</footer>
+<button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+<script>
+// Loading Screen
+window.addEventListener('load', function() {
+setTimeout(function() {
+document.getElementById('loadingScreen').classList.add('hidden');
+}, 2200);
+});
+
+// Particles
+const particlesContainer = document.getElementById('particles');
+for (let i = 0; i < 30; i++) {
+const particle = document.createElement('div');
+particle.className = 'particle';
+particle.style.left = Math.random() * 100 + '%';
+particle.style.animationDelay = Math.random() * 8 + 's';
+particle.style.animationDuration = (6 + Math.random() * 4) + 's';
+particlesContainer.appendChild(particle);
+}
+
+// Navbar Scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', function() {
+if (window.scrollY > 50) {
+navbar.classList.add('scrolled');
+} else {
+navbar.classList.remove('scrolled');
+}
+});
+
+// Mobile Menu
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+function openMobileMenu() {
+mobileMenu.classList.add('active');
+mobileMenuOverlay.classList.add('active');
+document.body.style.overflow = 'hidden';
+}
+
+function closeMobileMenu() {
+mobileMenu.classList.remove('active');
+mobileMenuOverlay.classList.remove('active');
+document.body.style.overflow = '';
+}
+
+mobileMenuBtn.addEventListener('click', openMobileMenu);
+mobileMenuClose.addEventListener('click', closeMobileMenu);
+mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+link.addEventListener('click', closeMobileMenu);
+});
+
+// Scroll Animations
+const animateElements = document.querySelectorAll('.animate-on-scroll');
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
+}, { threshold: 0.1 });
+
+animateElements.forEach(el => observer.observe(el));
+
+// Counter Animation
+const statNumbers = document.querySelectorAll('.stat-number');
+const counterObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+const target = parseInt(entry.target.getAttribute('data-target'));
+let current = 0;
+const increment = target / 60;
+const timer = setInterval(() => {
+current += increment;
+if (current >= target) {
+entry.target.textContent = target + (target === 99 ? '%' : '+');
+clearInterval(timer);
+} else {
+entry.target.textContent = Math.floor(current) + (target === 99 ? '%' : '+');
+}
+}, 30);
+counterObserver.unobserve(entry.target);
+}
+});
+}, { threshold: 0.5 });
+
+statNumbers.forEach(el => counterObserver.observe(el));
+
+// FAQ Accordion
+const faqItems = document.querySelectorAll('.faq-item');
+faqItems.forEach(item => {
+const question = item.querySelector('.faq-question');
+question.addEventListener('click', () => {
+const isActive = item.classList.contains('active');
+faqItems.forEach(i => i.classList.remove('active'));
+if (!isActive) {
+item.classList.add('active');
+}
+});
+});
+
+// Back to Top
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', function() {
+if (window.scrollY > 500) {
+backToTop.classList.add('visible');
+} else {
+backToTop.classList.remove('visible');
+}
+});
+
+backToTop.addEventListener('click', function() {
+window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Contact Form
+const contactForm = document.getElementById('contactForm');
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+const name = document.getElementById('name').value;
+const email = document.getElementById('email').value;
+const message = document.getElementById('message').value;
+const whatsappUrl = 'https://wa.me/?text=' + encodeURIComponent('Name: ' + name + '%0AEmail: ' + email + '%0AMessage: ' + message);
+window.open(whatsappUrl, '_blank');
+contactForm.reset();
+});
+
+// Account Filter
+const filterBtns = document.querySelectorAll('.filter-btn');
+const accountCards = document.querySelectorAll('.account-card');
+
+filterBtns.forEach(btn => {
+btn.addEventListener('click', function() {
+filterBtns.forEach(b => b.classList.remove('active'));
+this.classList.add('active');
+const filter = this.getAttribute('data-filter');
+accountCards.forEach(card => {
+if (filter === 'all' || card.getAttribute('data-rank') === filter) {
+card.style.display = 'block';
+setTimeout(() => card.style.opacity = '1', 10);
+} else {
+card.style.opacity = '0';
+setTimeout(() => card.style.display = 'none', 300);
+}
+});
+});
+});
+
+// Account Search
+const accountSearch = document.getElementById('accountSearch');
+accountSearch.addEventListener('input', function() {
+const searchTerm = this.value.toLowerCase();
+accountCards.forEach(card => {
+const rank = card.getAttribute('data-rank').toLowerCase();
+const level = card.getAttribute('data-level');
+const price = card.getAttribute('data-price');
+const text = card.textContent.toLowerCase();
+if (rank.includes(searchTerm) || level.includes(searchTerm) || price.includes(searchTerm) || text.includes(searchTerm)) {
+card.style.display = 'block';
+setTimeout(() => card.style.opacity = '1', 10);
+} else {
+card.style.opacity = '0';
+setTimeout(() => card.style.display = 'none', 300);
+}
+});
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+if (target) {
+target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+});
+});
+</script>
+</body>
+</html>'''
+
+with open('/mnt/agents/output/rush_account_store.html', 'w', encoding='utf-8') as f:
+    f.write(html_code)
+
+print(f"File saved successfully. Length: {len(html_code)} characters")
