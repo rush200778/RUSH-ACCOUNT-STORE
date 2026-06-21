@@ -1,0 +1,651 @@
+
+html_code = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rush Account Store | Sri Lanka's Trusted Free Fire Account Marketplace</title>
+<meta name="description" content="Sri Lanka's most trusted Free Fire account marketplace. Premium accounts, instant delivery, and 24/7 support. Join our WhatsApp community today.">
+<meta name="keywords" content="Free Fire, account, buy, sell, Sri Lanka, gaming, skins, diamonds, rank, elite pass">
+<meta name="author" content="Rush Account Store">
+<meta property="og:title" content="Rush Account Store - Free Fire Accounts">
+<meta property="og:description" content="Premium Free Fire accounts with instant delivery. Trusted by Sri Lankan gamers.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://rushaccountstore.lk">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+:root {
+--neon-blue: #00D4FF;
+--neon-blue-glow: rgba(0, 212, 255, 0.4);
+--neon-blue-dark: #0099CC;
+--gold: #FFD700;
+--gold-light: #FFE55C;
+--gold-dark: #B8860B;
+--black: #050508;
+--black-light: #0A0A0F;
+--dark-gray: #111118;
+--dark-gray-light: #1A1A24;
+--text-primary: #FFFFFF;
+--text-secondary: #A0A8B8;
+--text-muted: #5A6070;
+--glass: rgba(255, 255, 255, 0.03);
+--glass-border: rgba(255, 255, 255, 0.06);
+--glass-hover: rgba(0, 212, 255, 0.05);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+font-family: 'Inter', sans-serif;
+background: var(--black);
+color: var(--text-primary);
+overflow-x: hidden;
+line-height: 1.6;
+}
+
+/* ===== LOADING SCREEN ===== */
+.loading-screen {
+position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+background: var(--black); z-index: 10000;
+display: flex; flex-direction: column; align-items: center; justify-content: center;
+transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+.loading-screen.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+.loading-logo {
+font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 2.5rem;
+background: linear-gradient(135deg, var(--neon-blue), var(--gold));
+-webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+margin-bottom: 2rem; animation: logo-pulse 1.5s ease infinite;
+}
+@keyframes logo-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(0.97); } }
+.loading-bar-container { width: 240px; height: 4px; background: var(--dark-gray); border-radius: 2px; overflow: hidden; position: relative; }
+.loading-bar { width: 0%; height: 100%; background: linear-gradient(90deg, var(--neon-blue), var(--gold)); border-radius: 2px; animation: load-fill 2.2s ease forwards; }
+@keyframes load-fill { 0% { width: 0%; } 100% { width: 100%; } }
+.loading-text { font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 0.9rem; color: var(--text-muted); margin-top: 1rem; letter-spacing: 2px; text-transform: uppercase; }
+
+/* ===== BACKGROUND EFFECTS ===== */
+.bg-grid {
+position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+pointer-events: none; z-index: 0; opacity: 0.08;
+background-image: linear-gradient(rgba(0,212,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.08) 1px, transparent 1px);
+background-size: 60px 60px;
+}
+.bg-glow {
+position: fixed; width: 700px; height: 700px; border-radius: 50%;
+filter: blur(180px); pointer-events: none; z-index: 0; opacity: 0.25;
+}
+.bg-glow-1 { top: -250px; right: -200px; background: var(--neon-blue); }
+.bg-glow-2 { bottom: -300px; left: -200px; background: var(--gold); opacity: 0.15; }
+.bg-glow-3 { top: 40%; left: 50%; transform: translate(-50%, -50%); background: var(--neon-blue); opacity: 0.06; }
+
+/* ===== PARTICLES ===== */
+.particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: hidden; }
+.particle {
+position: absolute; width: 3px; height: 3px; background: var(--neon-blue);
+border-radius: 50%; opacity: 0; box-shadow: 0 0 6px var(--neon-blue-glow);
+animation: float-particle 10s infinite ease-in-out;
+}
+@keyframes float-particle {
+0%, 100% { opacity: 0; transform: translateY(0) scale(0); }
+8% { opacity: 1; transform: translateY(-30px) scale(1); }
+92% { opacity: 1; transform: translateY(-100vh) scale(1); }
+100% { opacity: 0; transform: translateY(-110vh) scale(0); }
+}
+
+/* ===== NAVBAR ===== */
+.navbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 1.2rem 0; transition: all 0.4s ease; background: transparent; }
+.navbar.scrolled { background: rgba(5,5,8,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid var(--glass-border); padding: 0.8rem 0; }
+.nav-container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; }
+.logo-area { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+.flag-icon { font-size: 1.6rem; line-height: 1; filter: drop-shadow(0 0 8px rgba(0,212,255,0.3)); animation: flag-wave 3s ease infinite; }
+@keyframes flag-wave { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(3deg); } 75% { transform: rotate(-3deg); } }
+.logo-text-main { font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 1.4rem; color: var(--text-primary); letter-spacing: 1px; line-height: 1.2; }
+.logo-text-main span { color: var(--neon-blue); text-shadow: 0 0 20px var(--neon-blue-glow); }
+.logo-sub { font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 0.75rem; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--text-secondary); font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 1.1rem; letter-spacing: 1px; transition: all 0.3s ease; position: relative; padding: 0.5rem 0; }
+.nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, var(--neon-blue), var(--gold)); transition: width 0.3s ease; border-radius: 1px; }
+.nav-links a:hover { color: var(--neon-blue); text-shadow: 0 0 10px var(--neon-blue-glow); }
+.nav-links a:hover::after { width: 100%; }
+.mobile-menu-btn { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+/* ===== BUTTONS ===== */
+.btn { display: inline-flex; align-items: center; gap: 0.6rem; padding: 1rem 2.5rem; border-radius: 12px; font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 1px; text-decoration: none; cursor: pointer; transition: all 0.35s ease; border: none; position: relative; overflow: hidden; }
+.btn-primary { background: linear-gradient(135deg, var(--neon-blue), var(--neon-blue-dark)); color: var(--black); box-shadow: 0 0 30px var(--neon-blue-glow), inset 0 1px 0 rgba(255,255,255,0.2); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 40px var(--neon-blue-glow), inset 0 1px 0 rgba(255,255,255,0.2); }
+.btn-glow { position: relative; }
+.btn-glow::before { content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; background: linear-gradient(45deg, var(--neon-blue), var(--gold), var(--neon-blue)); border-radius: 14px; z-index: -1; opacity: 0; transition: opacity 0.3s ease; animation: glow-rotate 3s linear infinite; }
+.btn-glow:hover::before { opacity: 1; }
+@keyframes glow-rotate { 0% { filter: hue-rotate(0deg); } 100% { filter: hue-rotate(360deg); } }
+.btn-whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); color: white; box-shadow: 0 0 30px rgba(37,211,102,0.3); font-size: 1.2rem; padding: 1.2rem 3rem; }
+.btn-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(37,211,102,0.4); }
+.btn-outline { background: transparent; color: var(--neon-blue); border: 2px solid var(--neon-blue); box-shadow: 0 0 15px rgba(0,212,255,0.1); }
+.btn-outline:hover { background: var(--neon-blue); color: var(--black); box-shadow: 0 0 30px var(--neon-blue-glow); transform: translateY(-3px); }
+
+/* ===== HERO ===== */
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; padding: 10rem 2rem 5rem; overflow: hidden; }
+.hero-content { text-align: center; max-width: 900px; position: relative; z-index: 2; }
+.hero-tag {
+display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.6rem 1.8rem;
+background: var(--glass); border: 1px solid var(--glass-border); border-radius: 50px;
+font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--gold);
+margin-bottom: 2rem; animation: fadeInUp 0.8s ease forwards; backdrop-filter: blur(10px);
+}
+.hero-tag i { color: var(--neon-blue); }
+.hero-title {
+font-family: 'Orbitron', sans-serif; font-weight: 900;
+font-size: clamp(2.8rem, 7vw, 5.5rem); line-height: 1.05;
+margin-bottom: 1.5rem; animation: fadeInUp 0.8s ease 0.2s forwards; opacity: 0;
+}
+.hero-title .gradient-text {
+background: linear-gradient(135deg, var(--neon-blue), var(--gold), var(--neon-blue));
+-webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+background-size: 200% auto; animation: gradient-shift 4s ease infinite;
+}
+@keyframes gradient-shift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+.hero-subtitle {
+font-family: 'Rajdhani', sans-serif; font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+color: var(--text-secondary); font-weight: 500; margin-bottom: 3.5rem;
+animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0;
+}
+.hero-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.6s forwards; opacity: 0; }
+.hero-stats-row { display: flex; justify-content: center; gap: 4rem; margin-top: 5rem; animation: fadeInUp 0.8s ease 0.8s forwards; opacity: 0; }
+.hero-stat { text-align: center; }
+.hero-stat-value { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 2.2rem; color: var(--neon-blue); text-shadow: 0 0 20px var(--neon-blue-glow); }
+.hero-stat-label { font-family: 'Rajdhani', sans-serif; color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; margin-top: 0.3rem; }
+
+/* ===== SECTIONS COMMON ===== */
+section { position: relative; z-index: 2; }
+.section-header { text-align: center; margin-bottom: 4rem; }
+.section-label { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--neon-blue); text-transform: uppercase; letter-spacing: 4px; margin-bottom: 1rem; text-shadow: 0 0 10px var(--neon-blue-glow); }
+.section-title { font-family: 'Orbitron', sans-serif; font-weight: 800; font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 1rem; }
+.section-title .highlight { color: var(--neon-blue); text-shadow: 0 0 20px var(--neon-blue-glow); }
+.section-desc { color: var(--text-secondary); max-width: 600px; margin: 0 auto; font-size: 1.1rem; }
+
+/* ===== FEATURES ===== */
+.features { padding: 6rem 2rem; background: linear-gradient(180deg, transparent, rgba(0,212,255,0.02), transparent); }
+.features-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+.feature-card {
+background: var(--glass); border: 1px solid var(--glass-border); border-radius: 24px;
+padding: 2.5rem; text-align: center; transition: all 0.4s ease; position: relative; overflow: hidden;
+backdrop-filter: blur(10px);
+}
+.feature-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--neon-blue), var(--gold)); transform: scaleX(0); transition: transform 0.4s ease; }
+.feature-card:hover { transform: translateY(-12px); border-color: rgba(0,212,255,0.2); box-shadow: 0 25px 60px rgba(0,0,0,0.5), 0 0 30px rgba(0,212,255,0.05); }
+.feature-card:hover::before { transform: scaleX(1); }
+.feature-icon {
+width: 75px; height: 75px; background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(255,215,0,0.1));
+border-radius: 20px; display: flex; align-items: center; justify-content: center;
+margin: 0 auto 1.5rem; font-size: 1.8rem; color: var(--neon-blue);
+border: 1px solid rgba(0,212,255,0.15); box-shadow: 0 0 20px rgba(0,212,255,0.1);
+}
+.feature-card h3 { font-family: 'Orbitron', sans-serif; font-size: 1.15rem; margin-bottom: 0.75rem; }
+.feature-card p { color: var(--text-secondary); font-size: 0.95rem; }
+
+/* ===== WHY CHOOSE US ===== */
+.why-us { padding: 6rem 2rem; }
+.why-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; }
+.why-item {
+display: flex; align-items: center; gap: 1.2rem; padding: 1.5rem 2rem;
+background: var(--glass); border: 1px solid var(--glass-border); border-radius: 16px;
+transition: all 0.3s ease; backdrop-filter: blur(10px);
+}
+.why-item:hover { border-color: rgba(0,212,255,0.2); transform: translateX(8px); box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+.why-check {
+width: 45px; height: 45px; min-width: 45px; background: linear-gradient(135deg, var(--neon-blue), var(--neon-blue-dark));
+border-radius: 12px; display: flex; align-items: center; justify-content: center;
+font-size: 1.1rem; color: var(--black); box-shadow: 0 0 15px var(--neon-blue-glow);
+}
+.why-item h4 { font-family: 'Rajdhani', sans-serif; font-weight: 700; font-size: 1.15rem; margin-bottom: 0.2rem; }
+.why-item p { color: var(--text-secondary); font-size: 0.9rem; }
+
+/* ===== ACCOUNTS (UPDATING SOON) ===== */
+.accounts { padding: 6rem 2rem; background: linear-gradient(180deg, transparent, rgba(0,212,255,0.02), transparent); }
+.accounts-container { max-width: 600px; margin: 0 auto; text-align: center; }
+.updating-card {
+background: linear-gradient(145deg, var(--dark-gray), var(--black-light));
+border: 1px solid var(--glass-border); border-radius: 28px;
+padding: 4rem 3rem; position: relative; overflow: hidden;
+box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+.updating-card::before {
+content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px;
+background: linear-gradient(45deg, var(--neon-blue), var(--gold), var(--neon-blue));
+border-radius: 30px; z-index: -1; opacity: 0.3; animation: glow-rotate 4s linear infinite;
+}
+.updating-icon {
+width: 100px; height: 100px; background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(255,215,0,0.1));
+border-radius: 50%; display: flex; align-items: center; justify-content: center;
+margin: 0 auto 2rem; font-size: 2.5rem; color: var(--neon-blue);
+border: 2px solid rgba(0,212,255,0.2); box-shadow: 0 0 30px rgba(0,212,255,0.1);
+animation: icon-pulse 2s ease infinite;
+}
+@keyframes icon-pulse { 0%, 100% { box-shadow: 0 0 30px rgba(0,212,255,0.1); } 50% { box-shadow: 0 0 50px rgba(0,212,255,0.3); } }
+.updating-title { font-family: 'Orbitron', sans-serif; font-weight: 800; font-size: 2rem; color: var(--neon-blue); text-shadow: 0 0 20px var(--neon-blue-glow); margin-bottom: 1rem; }
+.updating-text { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem; }
+.loading-dots { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2rem; }
+.loading-dot { width: 12px; height: 12px; background: var(--neon-blue); border-radius: 50%; animation: dot-bounce 1.4s ease infinite; box-shadow: 0 0 10px var(--neon-blue-glow); }
+.loading-dot:nth-child(2) { animation-delay: 0.2s; background: var(--gold); box-shadow: 0 0 10px rgba(255,215,0,0.4); }
+.loading-dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes dot-bounce { 0%, 80%, 100% { transform: scale(0.6); opacity: 0.5; } 40% { transform: scale(1); opacity: 1; } }
+.updating-sub { color: var(--text-muted); font-size: 0.95rem; }
+
+/* ===== COMMUNITY ===== */
+.community { padding: 6rem 2rem; }
+.community-container { max-width: 700px; margin: 0 auto; text-align: center; }
+.community-card {
+background: linear-gradient(145deg, var(--dark-gray), var(--black-light));
+border: 1px solid rgba(37,211,102,0.15); border-radius: 28px;
+padding: 4rem 3rem; position: relative; overflow: hidden;
+box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+.community-card::before {
+content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+background: radial-gradient(circle, rgba(37,211,102,0.04), transparent 70%);
+animation: pulse-glow 5s ease-in-out infinite;
+}
+.community-content { position: relative; z-index: 1; }
+.community-icon {
+width: 110px; height: 110px; background: linear-gradient(135deg, #25D366, #128C7E);
+border-radius: 50%; display: flex; align-items: center; justify-content: center;
+margin: 0 auto 2rem; font-size: 3.5rem; color: white;
+box-shadow: 0 0 50px rgba(37,211,102,0.3); animation: whatsapp-bounce 2.5s ease infinite;
+}
+@keyframes whatsapp-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+.community-card h3 { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; margin-bottom: 1rem; }
+.community-card p { color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 450px; margin-left: auto; margin-right: auto; }
+.community-stats { display: flex; justify-content: center; gap: 3rem; margin-top: 2.5rem; }
+.community-stat { text-align: center; }
+.community-stat-value { font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 1.6rem; color: #25D366; }
+.community-stat-label { font-family: 'Rajdhani', sans-serif; color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+
+/* ===== CONTACT ===== */
+.contact { padding: 6rem 2rem; background: linear-gradient(180deg, transparent, rgba(0,212,255,0.02), transparent); }
+.contact-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+.contact-card {
+background: var(--glass); border: 1px solid var(--glass-border); border-radius: 20px;
+padding: 2.5rem; text-align: center; transition: all 0.4s ease; backdrop-filter: blur(10px);
+}
+.contact-card:hover { transform: translateY(-10px); border-color: rgba(0,212,255,0.2); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+.contact-icon {
+width: 65px; height: 65px; background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(255,215,0,0.1));
+border-radius: 18px; display: flex; align-items: center; justify-content: center;
+margin: 0 auto 1.5rem; font-size: 1.6rem; color: var(--neon-blue);
+border: 1px solid rgba(0,212,255,0.15);
+}
+.contact-card h3 { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; margin-bottom: 0.5rem; }
+.contact-card p { color: var(--text-secondary); font-size: 0.95rem; }
+
+/* ===== FOOTER ===== */
+.footer { padding: 4rem 2rem 2rem; background: linear-gradient(180deg, transparent, var(--black-light)); border-top: 1px solid var(--glass-border); }
+.footer-container { max-width: 1200px; margin: 0 auto; text-align: center; }
+.footer-logo { font-family: 'Orbitron', sans-serif; font-weight: 800; font-size: 1.5rem; color: var(--text-primary); margin-bottom: 0.5rem; }
+.footer-logo span { color: var(--neon-blue); text-shadow: 0 0 15px var(--neon-blue-glow); }
+.footer-tag { font-family: 'Rajdhani', sans-serif; font-weight: 600; font-size: 0.9rem; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1.5rem; }
+.footer-divider { width: 80px; height: 2px; background: linear-gradient(90deg, var(--neon-blue), var(--gold)); margin: 0 auto 1.5rem; border-radius: 1px; }
+.footer-copyright { color: var(--text-muted); font-size: 0.9rem; }
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu { position: fixed; top: 0; right: -100%; width: 100%; max-width: 400px; height: 100vh; background: var(--black); border-left: 1px solid var(--glass-border); z-index: 1001; padding: 6rem 2rem 2rem; transition: right 0.4s ease; }
+.mobile-menu.active { right: 0; }
+.mobile-menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; opacity: 0; visibility: hidden; transition: all 0.4s ease; }
+.mobile-menu-overlay.active { opacity: 1; visibility: visible; }
+.mobile-menu-links { list-style: none; }
+.mobile-menu-links li { margin-bottom: 1.5rem; }
+.mobile-menu-links a { font-family: 'Orbitron', sans-serif; font-size: 1.3rem; color: var(--text-primary); text-decoration: none; display: block; padding: 0.5rem 0; transition: color 0.3s ease; }
+.mobile-menu-links a:hover { color: var(--neon-blue); }
+.mobile-menu-close { position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+/* ===== BACK TO TOP ===== */
+.back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px; background: linear-gradient(135deg, var(--neon-blue), var(--gold)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--black); font-size: 1.2rem; cursor: pointer; z-index: 999; opacity: 0; visibility: hidden; transition: all 0.3s ease; box-shadow: 0 0 25px var(--neon-blue-glow); border: none; }
+.back-to-top.visible { opacity: 1; visibility: visible; }
+.back-to-top:hover { transform: translateY(-5px); box-shadow: 0 10px 35px var(--neon-blue-glow); }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+.animate-on-scroll { opacity: 0; transform: translateY(50px); transition: all 0.9s ease; }
+.animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+.nav-links { display: none; }
+.mobile-menu-btn { display: block; }
+.hero-stats-row { gap: 2rem; flex-wrap: wrap; }
+.hero { padding: 8rem 1.5rem 4rem; }
+.features, .why-us, .accounts, .community, .contact, .faq { padding: 4rem 1.5rem; }
+.hero-buttons { flex-direction: column; align-items: center; }
+.btn { width: 100%; max-width: 320px; justify-content: center; }
+.updating-card { padding: 3rem 2rem; }
+.community-card { padding: 3rem 2rem; }
+}
+@media (max-width: 480px) {
+.hero-title { font-size: 2.2rem; }
+.hero-subtitle { font-size: 1rem; }
+.section-title { font-size: 1.6rem; }
+.community-stats { gap: 1.5rem; }
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--neon-blue), var(--gold)); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, var(--gold), var(--neon-blue)); }
+::selection { background: var(--neon-blue); color: var(--black); }
+</style>
+</head>
+<body>
+
+<!-- Loading Screen -->
+<div class="loading-screen" id="loadingScreen">
+<div class="loading-logo">Rush Account Store</div>
+<div class="loading-bar-container">
+<div class="loading-bar"></div>
+</div>
+<div class="loading-text">Loading Experience</div>
+</div>
+
+<!-- Background Effects -->
+<div class="bg-grid"></div>
+<div class="bg-glow bg-glow-1"></div>
+<div class="bg-glow bg-glow-2"></div>
+<div class="bg-glow bg-glow-3"></div>
+<div class="particles" id="particles"></div>
+
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+<div class="nav-container">
+<a href="#" class="logo-area">
+<div class="flag-icon">🇱🇰</div>
+<div>
+<div class="logo-text-main">Rush <span>Account</span> Store</div>
+<div class="logo-sub">Sri Lankan Trusted Account Store</div>
+</div>
+</a>
+<ul class="nav-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#accounts">Accounts</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+</div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+<button class="mobile-menu-close" id="mobileMenuClose"><i class="fas fa-times"></i></button>
+<ul class="mobile-menu-links">
+<li><a href="#home">Home</a></li>
+<li><a href="#accounts">Accounts</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="hero-content">
+<div class="hero-tag"><i class="fas fa-shield-alt"></i> Trusted by 500+ Sri Lankan Gamers</div>
+<h1 class="hero-title">Rush <span class="gradient-text">Account Store</span></h1>
+<p class="hero-subtitle">Sri Lanka's Trusted Free Fire Account Marketplace — Premium accounts, instant delivery & 24/7 support.</p>
+<div class="hero-buttons">
+<a href="#accounts" class="btn btn-primary btn-glow"><i class="fas fa-gamepad"></i> View Accounts</a>
+<a href="https://chat.whatsapp.com/KfD8toGR41RKG4wp6aKIaF?s=cl&p=a&mlu=1" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Join Community</a>
+</div>
+<div class="hero-stats-row">
+<div class="hero-stat"><div class="hero-stat-value">500+</div><div class="hero-stat-label">Happy Customers</div></div>
+<div class="hero-stat"><div class="hero-stat-value">350+</div><div class="hero-stat-label">Accounts Sold</div></div>
+<div class="hero-stat"><div class="hero-stat-value">99%</div><div class="hero-stat-label">Satisfaction</div></div>
+</div>
+</div>
+</section>
+
+<!-- Features Section -->
+<section class="features" id="features">
+<div class="section-header animate-on-scroll">
+<div class="section-label">What We Offer</div>
+<h2 class="section-title">Premium <span class="highlight">Features</span></h2>
+<p class="section-desc">Everything you need for a seamless gaming account experience.</p>
+</div>
+<div class="features-grid">
+<div class="feature-card animate-on-scroll">
+<div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+<h3>Trusted Accounts</h3>
+<p>Every account is manually verified for authenticity and security before listing.</p>
+</div>
+<div class="feature-card animate-on-scroll">
+<div class="feature-icon"><i class="fas fa-headset"></i></div>
+<h3>24/7 Customer Support</h3>
+<p>Our dedicated team is available round-the-clock via WhatsApp for any assistance.</p>
+</div>
+<div class="feature-card animate-on-scroll">
+<div class="feature-icon"><i class="fas fa-bolt"></i></div>
+<h3>Fast Delivery</h3>
+<p>Receive your account credentials within minutes of purchase. No waiting, no delays.</p>
+</div>
+<div class="feature-card animate-on-scroll">
+<div class="feature-icon"><i class="fas fa-lock"></i></div>
+<h3>Secure Transactions</h3>
+<p>End-to-end encrypted payments with full buyer protection on every transaction.</p>
+</div>
+</div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="why-us" id="why-us">
+<div class="section-header animate-on-scroll">
+<div class="section-label">Why Us</div>
+<h2 class="section-title">Why Choose <span class="highlight">Rush Account Store</span></h2>
+<p class="section-desc">The most trusted Free Fire account marketplace in Sri Lanka.</p>
+</div>
+<div class="why-grid">
+<div class="why-item animate-on-scroll">
+<div class="why-check"><i class="fas fa-check"></i></div>
+<div><h4>100% Trusted Service</h4><p>Verified by hundreds of satisfied customers across Sri Lanka.</p></div>
+</div>
+<div class="why-item animate-on-scroll">
+<div class="why-check"><i class="fas fa-check"></i></div>
+<div><h4>Quick Response</h4><p>Get replies within minutes through our active WhatsApp support.</p></div>
+</div>
+<div class="why-item animate-on-scroll">
+<div class="why-check"><i class="fas fa-check"></i></div>
+<div><h4>Active Community</h4><p>Join our growing community of gamers and get exclusive deals.</p></div>
+</div>
+<div class="why-item animate-on-scroll">
+<div class="why-check"><i class="fas fa-check"></i></div>
+<div><h4>Professional Support</h4><p>Expert team guiding you through every step of the process.</p></div>
+</div>
+<div class="why-item animate-on-scroll">
+<div class="why-check"><i class="fas fa-check"></i></div>
+<div><h4>Customer Satisfaction</h4><p>99% positive reviews from our loyal customer base.</p></div>
+</div>
+<div class="why-item animate-on-scroll">
+<div class="why-check"><i class="fas fa-check"></i></div>
+<div><h4>Secure Account Trading</h4><p>Safe transfers with complete ownership handover guaranteed.</p></div>
+</div>
+</div>
+</section>
+
+<!-- Accounts Section (Updating Soon) -->
+<section class="accounts" id="accounts">
+<div class="section-header animate-on-scroll">
+<div class="section-label">Inventory</div>
+<h2 class="section-title">Available <span class="highlight">Accounts</span></h2>
+<p class="section-desc">Browse our premium collection of Free Fire accounts.</p>
+</div>
+<div class="accounts-container">
+<div class="updating-card animate-on-scroll">
+<div class="updating-icon"><i class="fas fa-sync-alt fa-spin"></i></div>
+<div class="updating-title">UPDATING SOON</div>
+<p class="updating-text">We are preparing an amazing collection of premium accounts for you. Stay tuned!</p>
+<div class="loading-dots">
+<div class="loading-dot"></div>
+<div class="loading-dot"></div>
+<div class="loading-dot"></div>
+</div>
+<p class="updating-sub">Join our WhatsApp community to get notified when new accounts arrive.</p>
+<a href="https://chat.whatsapp.com/KfD8toGR41RKG4wp6aKIaF?s=cl&p=a&mlu=1" target="_blank" class="btn btn-whatsapp" style="margin-top:1.5rem;"><i class="fab fa-whatsapp"></i> Join WhatsApp Community</a>
+</div>
+</div>
+</section>
+
+<!-- Community Section -->
+<section class="community" id="community">
+<div class="section-header animate-on-scroll">
+<div class="section-label">Connect</div>
+<h2 class="section-title">Join Our <span class="highlight">Community</span></h2>
+<p class="section-desc">Be part of Sri Lanka's largest Free Fire gaming community.</p>
+</div>
+<div class="community-container">
+<div class="community-card animate-on-scroll">
+<div class="community-content">
+<div class="community-icon"><i class="fab fa-whatsapp"></i></div>
+<h3>Join Our WhatsApp Community</h3>
+<p>Get instant updates on new accounts, exclusive deals, and connect with fellow gamers. Our community is active 24/7!</p>
+<a href="https://chat.whatsapp.com/KfD8toGR41RKG4wp6aKIaF?s=cl&p=a&mlu=1" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Join Our WhatsApp Community</a>
+<div class="community-stats">
+<div class="community-stat"><div class="community-stat-value">500+</div><div class="community-stat-label">Members</div></div>
+<div class="community-stat"><div class="community-stat-value">24/7</div><div class="community-stat-label">Active</div></div>
+<div class="community-stat"><div class="community-stat-value">100%</div><div class="community-stat-label">Free</div></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact" id="contact">
+<div class="section-header animate-on-scroll">
+<div class="section-label">Support</div>
+<h2 class="section-title">Get In <span class="highlight">Touch</span></h2>
+<p class="section-desc">We are here to help you with any questions or concerns.</p>
+</div>
+<div class="contact-grid">
+<div class="contact-card animate-on-scroll">
+<div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+<h3>WhatsApp Community Support</h3>
+<p>Join our active WhatsApp group for instant support and updates.</p>
+</div>
+<div class="contact-card animate-on-scroll">
+<div class="contact-icon"><i class="fas fa-bolt"></i></div>
+<h3>Fast Response Team</h3>
+<p>Our team responds to all inquiries within minutes, guaranteed.</p>
+</div>
+<div class="contact-card animate-on-scroll">
+<div class="contact-icon"><i class="fas fa-clock"></i></div>
+<h3>Available 24 Hours</h3>
+<p>We are online around the clock to assist you anytime, anywhere.</p>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+<div class="footer-container">
+<div class="footer-logo">Rush <span>Account</span> Store</div>
+<div class="footer-tag">Sri Lankan Trusted Account Store</div>
+<div class="footer-divider"></div>
+<div class="footer-copyright"> 2026 Rush Account Store. All rights reserved.</div>
+</div>
+</footer>
+
+<!-- Back to Top -->
+<button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+// Loading Screen
+window.addEventListener('load', function() {
+setTimeout(function() {
+document.getElementById('loadingScreen').classList.add('hidden');
+}, 2500);
+});
+
+// Particles
+const particlesContainer = document.getElementById('particles');
+for (let i = 0; i < 40; i++) {
+const particle = document.createElement('div');
+particle.className = 'particle';
+particle.style.left = Math.random() * 100 + '%';
+particle.style.animationDelay = Math.random() * 10 + 's';
+particle.style.animationDuration = (8 + Math.random() * 6) + 's';
+particlesContainer.appendChild(particle);
+}
+
+// Navbar Scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', function() {
+if (window.scrollY > 50) {
+navbar.classList.add('scrolled');
+} else {
+navbar.classList.remove('scrolled');
+}
+});
+
+// Mobile Menu
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+function openMobileMenu() {
+mobileMenu.classList.add('active');
+mobileMenuOverlay.classList.add('active');
+document.body.style.overflow = 'hidden';
+}
+function closeMobileMenu() {
+mobileMenu.classList.remove('active');
+mobileMenuOverlay.classList.remove('active');
+document.body.style.overflow = '';
+}
+
+mobileMenuBtn.addEventListener('click', openMobileMenu);
+mobileMenuClose.addEventListener('click', closeMobileMenu);
+mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+link.addEventListener('click', closeMobileMenu);
+});
+
+// Scroll Animations
+const animateElements = document.querySelectorAll('.animate-on-scroll');
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
+}, { threshold: 0.1 });
+animateElements.forEach(el => observer.observe(el));
+
+// Back to Top
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', function() {
+if (window.scrollY > 500) {
+backToTop.classList.add('visible');
+} else {
+backToTop.classList.remove('visible');
+}
+});
+backToTop.addEventListener('click', function() {
+window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const target = document.querySelector(this.getAttribute('href'));
+if (target) {
+target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+});
+});
+</script>
+</body>
+</html>'''
+
+with open('/mnt/agents/output/rush_account_store.html', 'w', encoding='utf-8') as f:
+    f.write(html_code)
+
+print(f"File saved. Length: {len(html_code)} characters")
